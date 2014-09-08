@@ -1,0 +1,63 @@
+<!--
+	This plots multiple markers that are fetched via AJAX
+-->
+
+<style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+<script type="text/javascript">
+      function initialize() {
+
+	      	var myLatlng = new google.maps.LatLng(33.752100, -84.387);
+
+	        var mapOptions = {
+	          center: new google.maps.LatLng(33.752100, -84.387),
+	          zoom: 11
+	        };
+	        var map = new google.maps.Map(document.getElementById("map-canvas"),
+	            mapOptions);
+
+	      	var locations = [
+		      ['Lawrenceville', 33.9531, -83.9925, 1],
+		      ['Sandy Springs', 33.9375, -84.3686, 2]
+		    ];
+
+			var infowindow = new google.maps.InfoWindow();
+
+		    var marker, i;
+
+		    for (i = 0; i < locations.length; i++) {  
+			      marker = new google.maps.Marker({
+			        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+			        map: map
+			    });
+
+			    var info_window_content = get_infowindow_content();
+
+			    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			        return function() {
+			          infowindow.setContent(info_window_content);
+			          infowindow.open(map, marker);
+			        }
+			      })(marker, i));
+		  	}
+
+      } // this is the end of our function. WELCOME TO JAVASCRIPT YOU GUYS
+      
+      function get_infowindow_content(){
+      	return "<b>this is the infowindow</b>";
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+</script>
+
+this is our sweet map
+<br><br>
+
+<div id="map-canvas"/>

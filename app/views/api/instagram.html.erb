@@ -1,0 +1,15 @@
+<h1>Api#instagram</h1>
+<p>Find me in app/views/api/instagram.html.erb</p>
+
+<%@instagrams.each do |instagram|%>
+	<div class="item">
+		<%=image_tag(instagram['images']['low_resolution']['url'])%>
+		<br>
+		<%=instagram['user']['username']%>
+		(<%=instagram['likes']['count']%>)
+	</div>
+<%end%>
+
+
+
+			
