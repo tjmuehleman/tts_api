@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root "welcome#index"
-  
+
   get 'welcome/index'
 
   devise_for :users
   get 'google/map'
+  get 'google/map2'
+  get 'google/basicmap'
 
   get 'api/instagram'
   get 'api/marta'

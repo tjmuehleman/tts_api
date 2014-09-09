@@ -12,9 +12,11 @@ class ApiController < ApplicationController
   end
 
   def marta
-	source = 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus'
+	  source = 'http://developer.itsmarta.com/BRDRestService/BRDRestService.svc/GetAllBus'
     
     @buses = fetch_url_data(source)
+
+    render json: @buses
   end
 
   def fetch_url_data(source)
