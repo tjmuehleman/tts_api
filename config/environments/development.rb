@@ -32,6 +32,15 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => "tts_temp",
+    :access_key_id => "AKIAILM44XKPWCQAUC7A",
+    :secret_access_key => "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"
+  }
+}
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

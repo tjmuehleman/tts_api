@@ -1,0 +1,14 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<% if user_signed_in? %>
+
+  <%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %>
+
+  Welcome <%=current_user.email%>
+  <%= image_tag current_user.avatar.url %>
+
+  <% else %>
+
+  <%= link_to "Sign in",new_user_session_path %>
+
+  <% end %>
